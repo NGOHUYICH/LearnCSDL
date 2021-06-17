@@ -32,12 +32,11 @@
         //$MangAutoBai2 = array_count_values($MangBai2);
         $SoBanDau = $MangBai2[0];
         $SoVong = 1;
-        for ($i=0; $i <count($MangBai2) ; $i++) { 
+        for ($i=1; $i <count($MangBai2) ; $i++) { 
             # code...
-            
-            if($SoBanDau>=$MangBai2[$i]){
+            if($SoBanDau==$MangBai2[$i]){
                 $SoVong += 1;
-            } else {
+            } else if ($SoBanDau < $MangBai2[$i]) {
                 $SoBanDau = $MangBai2[$i];
                 $SoVong = 1;
             }
