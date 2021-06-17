@@ -32,8 +32,11 @@ select count(*) as SoDonHang from invoice_lines
 	where year(invoices.date) = 2022 and month(invoices.date) = 3 
 	and year(products.cdate) = 2021;
 -- yeu cau 9 --
-select invoices.id,invoices.date , customers.name from invoices 
+1. select invoices.id,invoices.date , customers.name from invoices 
 	inner join customers on invoices.customer_id = customers.id
 	where year(CURRENT_DATE)- year(invoices.date)>1 or
 (year(CURRENT_DATE)- year(invoices.date)=1 and month(CURRENT_DATE)-month(invoices.date)+12>6) or
 (year(CURRENT_DATE)- year(invoices.date)=1 and month(CURRENT_DATE)-month(invoices.date)+12=6 and day(CURRENT_DATE)-day(invoices.date)>=0)
+2. select invoices.id,invoices.date , customers.name from invoices 
+	inner join customers on invoices.customer_id = customers.id
+	where DATEDIFF(CURDATE(),invoices.date)>100;
